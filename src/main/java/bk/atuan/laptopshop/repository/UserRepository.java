@@ -8,4 +8,5 @@ import bk.atuan.laptopshop.domain.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     // User save(User user);
+    User findById(long id);
 }
