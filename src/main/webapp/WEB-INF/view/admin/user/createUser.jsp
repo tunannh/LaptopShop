@@ -46,7 +46,7 @@
                                     <label for="address" class="form-label">Address</label>
                                     <form:input type="text" class="form-control" id="address" path="address" />
                                 </div>
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Create</button>
                             </form:form>
                         </div>
                     </div>
