@@ -1,4 +1,4 @@
-package bk.atuan.laptopshop.controller;
+package bk.atuan.laptopshop.controller.admin;
 
 import java.util.List;
 
