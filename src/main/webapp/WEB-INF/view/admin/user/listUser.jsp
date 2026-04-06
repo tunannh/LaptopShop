@@ -45,8 +45,9 @@
                                         <thead>
                                             <tr>
                                                 <th scope=" col">Id</th>
-                                                <th scope="col">Name</th>
                                                 <th scope="col">Email</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Role</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -54,8 +55,9 @@
                                             <c:forEach var="user" items="${listUser}">
                                                 <tr>
                                                     <th scope="row">${user.id}</th>
-                                                    <td>${user.name}</td>
                                                     <td>${user.email}</td>
+                                                    <td>${user.name}</td>
+                                                    <td>${user.role.name}</td>
                                                     <td>
                                                         <a href="/admin/user/${user.id}"
                                                             class="btn btn-sm btn-success">View</a>

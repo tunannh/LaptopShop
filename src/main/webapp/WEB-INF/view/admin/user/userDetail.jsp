@@ -43,6 +43,7 @@
                                         User information
                                     </div>
                                     <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">Role: ${userInfo.role.name}</li>
                                         <li class="list-group-item">Full Name: ${userInfo.name}</li>
                                         <li class="list-group-item">Email: ${userInfo.email}</li>
                                         <li class="list-group-item">Address: ${userInfo.address}</li>
