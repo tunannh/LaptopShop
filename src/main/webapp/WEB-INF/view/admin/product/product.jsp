@@ -32,7 +32,49 @@
                             </ol>
 
                             <!-- CONTENT -->
-                            <div>Product Management</div>
+                            <div class="px-4">
+                                <div class="d-flex justify-content-between">
+                                    <h3>List Products</h3>
+                                    <a href="/admin/product/create"><button class="btn btn-primary">Create
+                                            product</button></a>
+                                </div>
+                                <hr>
+                                <div>
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope=" col">Id</th>
+                                                <th scope="col">Product name</th>
+                                                <th scope="col">Manufacturer</th>
+                                                <th scope="col">Sold</th>
+                                                <th scope="col">Remaining</th>
+                                                <th scope="col">Price</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach var="product" items="${listProduct}">
+                                                <tr>
+                                                    <th scope="row">${product.id}</th>
+                                                    <td>${product.name}</td>
+                                                    <td>${product.manufacturer}</td>
+                                                    <td>${product.sold}</td>
+                                                    <td>${product.price}</td>
+                                                    <td>${product.quantity}</td>
+                                                    <td>
+                                                        <a href="/admin/product/${product.id}"
+                                                            class="btn btn-sm btn-success">View</a>
+                                                        <a href="/admin/product/update/${product.id}"
+                                                            class="btn btn-sm btn-warning mx-2">Update</a>
+                                                        <a href="/admin/product/delete/${product.id}"
+                                                            class="btn btn-sm btn-danger">Delete</a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                             <!-- END CONTENT -->
 
                         </div>

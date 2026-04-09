@@ -9,7 +9,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
             <meta name="description" content="Laptop shop project" />
             <meta name="author" content="Atun" />
-            <title>User Information</title>
+            <title>Product Information</title>
             <link href="/css/dashboardStyles.css" rel="stylesheet" />
             <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
         </head>
@@ -25,31 +25,31 @@
                 <div id="layoutSidenav_content">
                     <main>
                         <div class="container-fluid px-4">
-                            <h1 class="mt-4">User information</h1>
+                            <h1 class="mt-4">Product information</h1>
                             <ol class="breadcrumb mb-4">
                                 <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="/admin/user">Manage User</a></li>
-                                <li class="breadcrumb-item active">User Information</li>
+                                <li class="breadcrumb-item"><a href="/admin/product">Manage Product</a></li>
+                                <li class="breadcrumb-item active">Product Information</li>
                             </ol>
 
                             <!-- CONTENT -->
                             <div class="px-4">
-                                <div class="card" style="width: 40%;">
+                                <div class="card" style="width: 30%;">
+                                    <div><img class="card-img-top" src="/images/product/${productInfo.image}"
+                                            alt="Product image"></div>
                                     <div class="card-header">
-                                        User information
+                                        Product information
                                     </div>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">ID: ${userInfo.id}</li>
-                                        <li class="list-group-item">Role: ${userInfo.role.name}</li>
-                                        <li class="list-group-item">Full Name: ${userInfo.name}</li>
-                                        <li class="list-group-item">Email: ${userInfo.email}</li>
-                                        <li class="list-group-item">Address: ${userInfo.address}</li>
-                                        <li class="list-group-item">Phone: ${userInfo.phoneNumber}</li>
-                                        <li class="list-group-item">Avatar:
-                                            <div class="mt-2"><img src="/images/avatar/${userInfo.avatar}"
-                                                    alt="User avatar" style="height: 250px; width: auto;"></div>
-                                        </li>
-
+                                        <li class="list-group-item">ID: ${productInfo.id}</li>
+                                        <li class="list-group-item">Name: ${productInfo.name}</li>
+                                        <li class="list-group-item">Manufacturer: ${productInfo.manufacturer}</li>
+                                        <li class="list-group-item">Target: ${productInfo.target}</li>
+                                        <li class="list-group-item">Detail description: ${productInfo.detailDesc}</li>
+                                        <li class="list-group-item">Short description: ${productInfo.shortDesc}</li>
+                                        <li class="list-group-item">Price: ${productInfo.price}</li>
+                                        <li class="list-group-item">Sold: ${productInfo.sold}</li>
+                                        <li class="list-group-item">Remaining: ${productInfo.quantity}</li>
                                     </ul>
                                 </div>
                             </div>

@@ -5,6 +5,8 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "products")
@@ -12,14 +14,30 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @NotEmpty(message = "Product name must not be empty")
     private String name;
+
+    @Min(value = 0, message = "Price must be greater than or equal to 0")
     private double price;
-    private String iamge;
+
+    private String image;
+
+    @NotEmpty(message = "Detail description must not be empty")
     private String detailDesc;
+
+    @NotEmpty(message = "Short description must not be empty")
     private String shortDesc;
+
+    @Min(value = 1, message = "Quantity must be greater than or equal to 1")
     private long quantity;
+
     private long sold;
+
+    @NotEmpty(message = "Manufacturer must not be empty")
     private String manufacturer;
+
+    @NotEmpty(message = "Target must not be empty")
     private String target;
 
     public long getId() {
@@ -46,12 +64,12 @@ public class Product {
         this.price = price;
     }
 
-    public String getIamge() {
-        return iamge;
+    public String getImage() {
+        return image;
     }
 
-    public void setIamge(String iamge) {
-        this.iamge = iamge;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getDetailDesc() {
@@ -104,7 +122,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "Product [id=" + id + ", name=" + name + ", price=" + price + ", iamge=" + iamge + ", detailDesc="
+        return "Product [id=" + id + ", name=" + name + ", price=" + price + ", image=" + image + ", detailDesc="
                 + detailDesc + ", shortDesc=" + shortDesc + ", quantity=" + quantity + ", sold=" + sold
                 + ", manufacturer=" + manufacturer + ", target=" + target + "]";
     }

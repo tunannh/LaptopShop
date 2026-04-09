@@ -85,16 +85,16 @@
                                                         <form:option value="User">User</form:option>
                                                     </form:select>
                                                 </div>
-                                                <div class="mb-3 col-12">
-                                                    <label for="avatarFile" class="form-label">Avatar</label>
-                                                    <input class="form-control" type="file" id="avatarFile"
-                                                        accept=".png, .jpg, .jpeg" name="newUserAvatar" />
-                                                </div>
 
-                                                <div class="form-label">Avatar preview:</div>
+                                                <label for="avatarFile" class="form-label">Avatar:</label>
                                                 <div class="col-12 mb-3">
                                                     <img src="/images/avatar/${user.avatar}" style="max-height: 250px"
                                                         id="avatarPreview" alt="Avatar Preview">
+                                                </div>
+
+                                                <div class="mb-3 col-12">
+                                                    <input class="form-control" type="file" id="avatarFile"
+                                                        accept=".png, .jpg, .jpeg" name="newUserAvatar" />
                                                 </div>
                                                 <div class="mb-5 col-12">
                                                     <button type="submit" class="btn btn-warning">Update</button>

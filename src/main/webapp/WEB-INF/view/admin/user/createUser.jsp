@@ -54,20 +54,36 @@
                                             <form:form method="post" action="/admin/user/create"
                                                 modelAttribute="newUser" class="row" enctype="multipart/form-data">
                                                 <div class="mb-3 col-12 col-md-6">
+                                                    <c:set var="nameError">
+                                                        <form:errors path="name" class="invalid-feedback" />
+                                                    </c:set>
                                                     <label for="fullName" class="form-label">Full name</label>
-                                                    <form:input type="text" class="form-control" id="fullName"
-                                                        path="name" />
+                                                    <form:input type="text"
+                                                        class="form-control ${not empty nameError ? 'is-invalid' : ''}"
+                                                        id="fullName" path="name" />
+                                                    ${nameError}
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
+                                                    <c:set var="emailError">
+                                                        <form:errors path="email" class="invalid-feedback" />
+                                                    </c:set>
+
                                                     <label for="email" class="form-label">Email</label>
-                                                    <form:input type="email" class="form-control" id="email"
-                                                        path="email" />
+                                                    <form:input type="email"
+                                                        class="form-control ${not empty emailError ? 'is-invalid' : ''}"
+                                                        id="email" path="email" />
+                                                    ${emailError}
                                                     <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
+                                                    <c:set var="passwordError">
+                                                        <form:errors path="password" class="invalid-feedback" />
+                                                    </c:set>
                                                     <label for="password" class="form-label">Password</label>
-                                                    <form:input type="password" class="form-control" id="password"
-                                                        path="password" />
+                                                    <form:input type="password"
+                                                        class="form-control ${not empty passwordError ? 'is-invalid' : ''}"
+                                                        id="password" path="password" />
+                                                    ${passwordError}
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">
                                                     <label for="phone" class="form-label">Phone number</label>

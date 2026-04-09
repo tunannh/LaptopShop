@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +15,7 @@ import bk.atuan.laptopshop.domain.Role;
 import bk.atuan.laptopshop.domain.User;
 import bk.atuan.laptopshop.service.UploadFileService;
 import bk.atuan.laptopshop.service.UserService;
+import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -54,12 +57,27 @@ public class UserController {
     }
 
     @PostMapping("/admin/user/create")
-    public String postSubmitForm(Model model, @ModelAttribute("newUser") User newUser,
+    public String postSubmitForm(Model model, @ModelAttribute("newUser") @Valid User newUser,
+            BindingResult newUserBindingResult,
             @RequestParam("userAvatar") MultipartFile avt) {
-        String fileName = this.uploadFileService.handleSaveFile(avt, "avatar");
+
+        List<FieldError> errors = newUserBindingResult.getFieldErrors();
+        for (FieldError error : errors) {
+            System.out.println("Field: " + error.getField() + ", Message: " + error.getDefaultMessage());
+        }
+
+        // Nếu input không hợp lệ
+        if (newUserBindingResult.hasErrors()) {
+            return "admin/user/createUser";
+        }
+
+        if (!avt.isEmpty()) {
+            String fileName = this.uploadFileService.handleSaveFile(avt, "avatar");
+            newUser.setAvatar(fileName);
+        }
         String hashPassword = this.passwordEncoder.encode(newUser.getPassword());
         newUser.setPassword(hashPassword);
-        newUser.setAvatar(fileName);
+
         Role role = this.userService.getRoleByName(newUser.getRole().getName());
         newUser.setRole(role);
         userService.handleSaveUser(newUser);
@@ -76,7 +94,6 @@ public class UserController {
     @PostMapping("/admin/user/update")
     public String postUpdateUser(Model model, @ModelAttribute("user") User userUpdate,
             @RequestParam("newUserAvatar") MultipartFile newAvt) {
-        System.out.println(newAvt.getOriginalFilename());
         User currentUser = this.userService.getUserById(userUpdate.getId());
         currentUser.setName(userUpdate.getName());
         currentUser.setPhoneNumber(userUpdate.getPhoneNumber());
@@ -105,7 +122,9 @@ public class UserController {
 
     @PostMapping("/admin/user/delete")
     public String postDeleteUser(Model model, @ModelAttribute("user") User user) {
-        this.userService.handleDeleteUser(user.getId());
+        User userToDelete = this.userService.getUserById(user.getId());
+        this.uploadFileService.handleDeleteFile(userToDelete.getAvatar(), "avatar");
+        this.userService.handleDeleteUser(userToDelete.getId());
         return "redirect:/admin/user";
     }
 }

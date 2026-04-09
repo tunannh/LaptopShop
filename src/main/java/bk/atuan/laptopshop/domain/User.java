@@ -10,6 +10,9 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 // @Service
 @Entity
@@ -18,9 +21,17 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    // @NotEmpty(message = "Name must not be empty")
+    @NotEmpty(message = "Name must not be empty")
     private String name;
+
+    @Email(message = "Email should be valid", regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
     private String email;
+
+    @Size(min = 6, message = "Password must have at least 6 characters")
     private String password;
+
     private String phoneNumber;
     private String address;
     private String avatar;
