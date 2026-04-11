@@ -18,9 +18,15 @@
                 <script>
                     $(document).ready(() => {
                         const avatarFile = $("#avatarFile");
+                        const orgAvatar = "${user.avatar}";
+                        if (orgAvatar) {
+                            $("#avatarPreview").attr("src", "/images/avatar/" + orgAvatar);
+                            $("#avatarPreview").css({ "display": "block", "margin-bottom": "15px" });
+                        }
                         avatarFile.change(function (e) {
                             const imgURL = URL.createObjectURL(e.target.files[0]);
                             $("#avatarPreview").attr("src", imgURL);
+                            $("#avatarPreview").css({ "display": "block", "margin-bottom": "15px" });
                         });
                     });
                 </script>
@@ -87,9 +93,10 @@
                                                 </div>
 
                                                 <label for="avatarFile" class="form-label">Avatar:</label>
-                                                <div class="col-12 mb-3">
-                                                    <img src="/images/avatar/${user.avatar}" style="max-height: 250px"
-                                                        id="avatarPreview" alt="Avatar Preview">
+                                                <div class="col-12">
+                                                    <img src="/images/avatar/${user.avatar}"
+                                                        style="max-height: 250px; display: none;" id="avatarPreview"
+                                                        alt="Avatar Preview">
                                                 </div>
 
                                                 <div class="mb-3 col-12">

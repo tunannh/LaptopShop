@@ -18,10 +18,15 @@
                 <script>
                     $(document).ready(() => {
                         const pImage = $("#pImage");
+                        const orgImg = "${product.image}";
+                        if (orgImg) {
+                            $("#imagePreview").attr("src", "/images/product/" + orgImg);
+                            $("#imagePreview").css({ "display": "block", "margin-bottom": "15px" });
+                        }
                         pImage.change(function (e) {
                             const imgURL = URL.createObjectURL(e.target.files[0]);
                             $("#imagePreview").attr("src", imgURL);
-                            $("#imagePreview").css({ "display": "block" });
+                            $("#imagePreview").css({ "display": "block", "margin-bottom": "15px" });
                         });
                     });
                 </script>
@@ -145,9 +150,9 @@
                                                 </div>
                                                 <label for="pImage" class="form-label">Product
                                                     image:</label>
-                                                <div class="col-12 mb-3">
+                                                <div class="col-12">
                                                     <img src="/images/product/${product.image}"
-                                                        style="max-height: 250px;" id="imagePreview"
+                                                        style="max-height: 250px; display: none;" id="imagePreview"
                                                         alt="Product Image Preview">
                                                 </div>
                                                 <div class="mb-3 col-12">
