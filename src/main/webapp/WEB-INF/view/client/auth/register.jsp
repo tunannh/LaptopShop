@@ -14,7 +14,7 @@
                 <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
             </head>
 
-            <body class="bg-primary">
+            <body>
                 <div id="layoutAuthentication">
                     <div id="layoutAuthentication_content">
                         <main>
@@ -95,10 +95,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="mt-4 mb-0">
-                                                        <div class="d-grid"><button class="btn btn-primary">Create
-                                                                Account</button>
-                                                        </div>
+                                                    <div class="d-grid mt-4 mb-0"><button class="btn btn-primary">Create
+                                                            Account</button>
                                                     </div>
                                                 </form:form>
                                             </div>

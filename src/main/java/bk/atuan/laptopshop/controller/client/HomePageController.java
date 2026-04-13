@@ -6,7 +6,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
@@ -38,6 +37,11 @@ public class HomePageController {
         return "client/homepage/home";
     }
 
+    @GetMapping("/access-deny")
+    public String getAccessDenyPage() {
+        return "client/auth/access-deny";
+    }
+
     @GetMapping("/register")
     public String getRegisterPage(Model model) {
         model.addAttribute("registerUser", new RegisterDTO());
@@ -62,7 +66,7 @@ public class HomePageController {
     }
 
     @GetMapping("/login")
-    public String getLoginPage() {
+    public String getLoginPage(Model model) {
         return "client/auth/login";
     }
 

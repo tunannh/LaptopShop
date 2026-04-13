@@ -87,8 +87,8 @@
                                                     <label for="role" class="form-label">Role</label>
                                                     <form:select class="form-select" aria-label="Select role" id="role"
                                                         path="role.name">
-                                                        <form:option value="Admin">Admin</form:option>
-                                                        <form:option value="User">User</form:option>
+                                                        <form:option value="ADMIN">Admin</form:option>
+                                                        <form:option value="USER">User</form:option>
                                                     </form:select>
                                                 </div>
 

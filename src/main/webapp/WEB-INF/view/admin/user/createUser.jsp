@@ -100,8 +100,8 @@
                                                     <form:select class="form-select" aria-label="Select role" id="role"
                                                         path="role.name">
                                                         <!-- <option selected>Select role</option> -->
-                                                        <option value="Admin">Admin</option>
-                                                        <option value="User">User</option>
+                                                        <option value="ADMIN">Admin</option>
+                                                        <option value="USER">User</option>
                                                     </form:select>
                                                 </div>
                                                 <div class="mb-3 col-12 col-md-6">

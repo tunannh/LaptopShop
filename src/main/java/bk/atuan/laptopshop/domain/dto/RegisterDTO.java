@@ -1,7 +1,9 @@
 package bk.atuan.laptopshop.domain.dto;
 
 import bk.atuan.laptopshop.service.validator.RegisterChecked;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 
 @RegisterChecked
 public class RegisterDTO {
@@ -13,9 +15,11 @@ public class RegisterDTO {
     private String lastName;
 
     @NotEmpty(message = "Email cannot be left blank")
+    @Email(message = "Email should be valid", regexp = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$")
     private String email;
 
     @NotEmpty(message = "Password cannot be left blank")
+    @Size(min = 6, message = "Password must have at least 6 characters")
     private String password;
 
     private String confirmPassword;
