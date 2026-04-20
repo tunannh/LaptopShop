@@ -1,7 +1,5 @@
 package bk.atuan.laptopshop.config;
 
-import javax.swing.Spring;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -72,14 +70,13 @@ public class SecurityConfiguration {
 
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated())
-                        .sessionManagement(s -> s
-                            .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
-                            .invalidSessionUrl("/logout?expired")
-                            .maximumSessions(1)
-                            .maxSessionsPreventsLogin(false)
-                        )
-                        .logout(logout -> logout.deleteCookies("JSESSIONID").invalidateHttpSession(true))
-                        .rememberMe(rmb -> rmb.rememberMeServices(rememberMeServices()))
+                .sessionManagement(s -> s
+                        .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+                        .invalidSessionUrl("/logout?expired")
+                        .maximumSessions(1)
+                        .maxSessionsPreventsLogin(false))
+                .logout(logout -> logout.deleteCookies("JSESSIONID").invalidateHttpSession(true))
+                .rememberMe(rmb -> rmb.rememberMeServices(rememberMeServices()))
 
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")

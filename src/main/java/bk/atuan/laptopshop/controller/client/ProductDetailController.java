@@ -7,6 +7,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import bk.atuan.laptopshop.domain.Product;
 import bk.atuan.laptopshop.service.ProductService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ProductDetailController {
@@ -22,4 +26,12 @@ public class ProductDetailController {
         model.addAttribute("product", product);
         return "client/product/detail";
     }
+
+    @PostMapping("/add-product-to-cart/{id}")
+    public String addToCart(@PathVariable("id") long productId, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        this.productService.handleAddProductToCart(productId, session);
+        return "redirect:/";
+    }
+
 }

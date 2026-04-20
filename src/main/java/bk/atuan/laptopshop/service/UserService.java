@@ -21,6 +21,9 @@ public class UserService {
     }
 
     public User handleSaveUser(User user) {
+        if (user == null) {
+            return null;
+        }
         return this.userRepository.save(user);
     }
 
