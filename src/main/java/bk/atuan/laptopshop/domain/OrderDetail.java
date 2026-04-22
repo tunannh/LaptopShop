@@ -17,6 +17,7 @@ public class OrderDetail {
 
     private long quantity;
     private double price;
+    private double total;
 
     @ManyToOne
     @JoinColumn(name = "order_id")
@@ -44,6 +45,14 @@ public class OrderDetail {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
     }
 
     public Order getOrder() {

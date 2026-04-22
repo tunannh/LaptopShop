@@ -66,8 +66,9 @@
                             <c:if test="${empty cartDetails}">
                                 <div>
                                     <!-- <h4 class="mb-4">Giỏ hàng của bạn đang trống!</h4> -->
-                                    <div class="alert alert-warning">Giỏ hàng của bạn đang trống.</div>
-                                    <a href="/" class="btn btn-primary rounded-pill px-4 py-2">Tiếp tục mua sắm</a>
+                                    <div class="alert alert-warning">Your shopping cart is empty.</div>
+                                    <a href="/" class="btn btn-primary rounded-pill px-4 py-2 text-white">Continue
+                                        shopping</a>
                                 </div>
                             </c:if>
 
@@ -190,12 +191,12 @@
                                                         varStatus="status">
                                                         <div class="mb-3">
                                                             <div class="form-group">
-                                                                <label for="">Id</label>
+                                                                <label>Id</label>
                                                                 <form:input path="cartDetails[${status.index}].id"
                                                                     class="form-control" />
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="" class="form-label">Quantity</label>
+                                                                <label>Quantity</label>
                                                                 <form:input path="cartDetails[${status.index}].quantity"
                                                                     class="form-control" />
                                                             </div>

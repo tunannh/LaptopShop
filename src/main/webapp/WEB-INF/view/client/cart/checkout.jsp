@@ -69,7 +69,7 @@
                                             <table class="table">
                                                 <thead>
                                                     <tr>
-                                                        <th scope="col">Products</th>
+                                                        <th scope="col">Product</th>
                                                         <th scope="col">Name</th>
                                                         <th scope="col">Price</th>
                                                         <th scope="col">Quantity</th>
@@ -87,13 +87,14 @@
                                                                         style="width: 70px; height: 70px;" alt="">
                                                                 </div>
                                                             </th>
-                                                            <td class="py-5">${cartDetail.product.name}</td>
-                                                            <td class="py-5">
+                                                            <td class="align-middle">${cartDetail.product.name}</td>
+                                                            <td class="align-middle">
                                                                 <fmt:formatNumber value="${cartDetail.product.price}"
                                                                     type="number" /> đ
                                                             </td>
-                                                            <td class="py-5 text-center">${cartDetail.quantity}</td>
-                                                            <td class="py-5">
+                                                            <td class="align-middle text-center">${cartDetail.quantity}
+                                                            </td>
+                                                            <td class="align-middle">
                                                                 <fmt:formatNumber
                                                                     value="${cartDetail.product.price * cartDetail.quantity}"
                                                                     type="number" /> đ
@@ -107,24 +108,28 @@
                                     <!-- end product list -->
                                     <!-- form -->
                                     <div class="col-md-12 col-lg-4 col-xl-5">
-                                        <form action="">
+                                        <form:form action="/place-order" method="post">
                                             <div class="row g-3">
                                                 <h3>Recipient information</h3>
                                                 <div class="form-item">
                                                     <label class="form-label my-2">Name<sup>*</sup></label>
-                                                    <input type="text" class="form-control" required>
+                                                    <input type="text" class="form-control" name="receiverName"
+                                                        required>
                                                 </div>
                                                 <div class="form-item">
                                                     <label class="form-label my-2">Email address<sup>*</sup></label>
-                                                    <input type="email" class="form-control" required>
+                                                    <input type="email" class="form-control" name="receiverEmail"
+                                                        required>
                                                 </div>
                                                 <div class="form-item">
                                                     <label class="form-label my-2">Address<sup>*</sup></label>
-                                                    <input type="text" class="form-control" required>
+                                                    <input type="text" class="form-control" name="receiverAddress"
+                                                        required>
                                                 </div>
                                                 <div class="form-item">
                                                     <label class="form-label my-2">Phone Number<sup>*</sup></label>
-                                                    <input type="text" class="form-control" required>
+                                                    <input type="text" class="form-control" name="receiverPhone"
+                                                        required>
                                                 </div>
                                             </div>
                                             <div class="row g-4 mt-5">
@@ -162,7 +167,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </form>
+                                        </form:form>
                                     </div>
                                     <!-- end form -->
                                 </div>

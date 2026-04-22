@@ -91,16 +91,24 @@
                                                 </button>
                                             </div>
                                             <input type="text" class="form-control form-control-sm text-center border-0"
-                                                value="1">
+                                                value="1" data-cart-detail-index="0">
                                             <div class="input-group-btn">
                                                 <button class="btn btn-sm btn-plus rounded-circle bg-light border">
                                                     <i class="fa fa-plus"></i>
                                                 </button>
                                             </div>
                                         </div>
-                                        <a href="#"
-                                            class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
-                                                class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</a>
+                                        <form action="/add-to-cart-from-product-detail" method="post">
+                                            <button type="submit"
+                                                class="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i
+                                                    class="fa fa-shopping-bag me-2 text-primary"></i> Add to
+                                                cart</button>
+                                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                                            <input class="form-control d-none" type="text" value="${product.id}"
+                                                name="id">
+                                            <input type="text" class="form-control d-none" name="quantity"
+                                                id="cartDetails0.quantity">
+                                        </form>
                                     </div>
                                     <div class="col-lg-12">
                                         <nav>

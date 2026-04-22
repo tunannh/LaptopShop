@@ -35,7 +35,7 @@
                                         <div class="text-center my-3">${sessionScope.name}</div>
                                     </li>
                                     <li><a href="#" class="dropdown-item">Account management</a></li>
-                                    <li><a href="#" class="dropdown-item">Order management</a></li>
+                                    <li><a href="/order-history" class="dropdown-item">Order history</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

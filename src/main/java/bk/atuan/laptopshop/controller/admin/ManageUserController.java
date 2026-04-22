@@ -6,7 +6,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,13 +21,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-public class UserController {
+public class ManageUserController {
 
     private final UserService userService;
     private final UploadFileService uploadFileService;
     private final PasswordEncoder passwordEncoder;
 
-    public UserController(UserService userService, UploadFileService uploadFileService,
+    public ManageUserController(UserService userService, UploadFileService uploadFileService,
             PasswordEncoder passwordEncoder) {
         this.userService = userService;
         this.uploadFileService = uploadFileService;
@@ -60,11 +59,6 @@ public class UserController {
     public String postSubmitForm(Model model, @ModelAttribute("newUser") @Valid User newUser,
             BindingResult newUserBindingResult,
             @RequestParam("userAvatar") MultipartFile avt) {
-
-        List<FieldError> errors = newUserBindingResult.getFieldErrors();
-        for (FieldError error : errors) {
-            System.out.println("Field: " + error.getField() + ", Message: " + error.getDefaultMessage());
-        }
 
         // Nếu input không hợp lệ
         if (newUserBindingResult.hasErrors()) {

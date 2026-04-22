@@ -20,11 +20,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 @Controller
-public class ProductController {
+public class ManageProductController {
     private final UploadFileService uploadFileService;
     private final ProductService productService;
 
-    public ProductController(UploadFileService uploadFileService, ProductService productService) {
+    public ManageProductController(UploadFileService uploadFileService, ProductService productService) {
         this.uploadFileService = uploadFileService;
         this.productService = productService;
     }

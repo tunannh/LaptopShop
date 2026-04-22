@@ -18,7 +18,13 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private long quantity;
-    private long totalPrice;
+    private double totalPrice;
+
+    private String status;
+    private String receiverName;
+    private String receiverPhone;
+    private String receiverAddress;
+    private String receiverEmail;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -43,17 +49,76 @@ public class Order {
         this.quantity = quantity;
     }
 
-    public long getTotalPrice() {
+    public double getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(long totalPrice) {
+    public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getReceiverName() {
+        return receiverName;
+    }
+
+    public void setReceiverName(String receiverName) {
+        this.receiverName = receiverName;
+    }
+
+    public String getReceiverPhone() {
+        return receiverPhone;
+    }
+
+    public void setReceiverPhone(String receiverPhone) {
+        this.receiverPhone = receiverPhone;
+    }
+
+    public String getReceiverAddress() {
+        return receiverAddress;
+    }
+
+    public void setReceiverAddress(String receiverAddress) {
+        this.receiverAddress = receiverAddress;
+    }
+
+    public String getReceiverEmail() {
+        return receiverEmail;
+    }
+
+    public void setReceiverEmail(String receiverEmail) {
+        this.receiverEmail = receiverEmail;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public List<OrderDetail> getOrderDtails() {
+        return orderDtails;
+    }
+
+    public void setOrderDtails(List<OrderDetail> orderDtails) {
+        this.orderDtails = orderDtails;
     }
 
     @Override
     public String toString() {
-        return "Order [id=" + id + ", quantity=" + quantity + ", totalPrice=" + totalPrice + "]";
+        return "Order [id=" + id + ", quantity=" + quantity + ", totalPrice=" + totalPrice + ", status=" + status
+                + ", receiverName=" + receiverName + ", receiverPhone=" + receiverPhone + ", receiverAddress="
+                + receiverAddress + ", receiverEmail=" + receiverEmail + ", user=" + user + ", orderDtails="
+                + orderDtails + "]";
     }
 
 }

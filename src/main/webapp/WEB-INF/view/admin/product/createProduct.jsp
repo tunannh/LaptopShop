@@ -38,7 +38,7 @@
                     <div id="layoutSidenav_content">
                         <main>
                             <div class="container-fluid px-4">
-                                <h1 class="mt-4">Create user</h1>
+                                <h1 class="mt-4">Create Product</h1>
                                 <ol class="breadcrumb mb-4">
                                     <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
                                     <li class="breadcrumb-item"><a href="/admin/product">Manage Product</a></li>
