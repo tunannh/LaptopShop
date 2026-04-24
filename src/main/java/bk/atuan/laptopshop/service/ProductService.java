@@ -2,6 +2,8 @@ package bk.atuan.laptopshop.service;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import bk.atuan.laptopshop.domain.Cart;
@@ -38,6 +40,10 @@ public class ProductService {
 
     public List<Product> getAllProduct() {
         return this.productRepopsitory.findAll();
+    }
+
+    public Page<Product> getAllProduct(Pageable pageable) {
+        return this.productRepopsitory.findAll(pageable);
     }
 
     public Product getProductById(long id) {

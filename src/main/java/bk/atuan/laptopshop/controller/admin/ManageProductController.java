@@ -2,6 +2,9 @@ package bk.atuan.laptopshop.controller.admin;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -30,9 +33,14 @@ public class ManageProductController {
     }
 
     @GetMapping("/admin/product")
-    public String getProductManagePage(Model model) {
-        List<Product> listProduct = this.productService.getAllProduct();
+    public String getProductManagePage(Model model,
+            @RequestParam(name = "page", defaultValue = "1") int page) {
+        Pageable pageable = PageRequest.of(page - 1, 3);
+        Page<Product> pageProduct = this.productService.getAllProduct(pageable);
+        List<Product> listProduct = pageProduct.getContent();
         model.addAttribute("listProduct", listProduct);
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", pageProduct.getTotalPages());
         return "admin/product/product";
     }
 

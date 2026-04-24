@@ -127,6 +127,18 @@
         $('#videoModal').on('hide.bs.modal', function (e) {
             $("#video").attr('src', $videoSrc);
         })
+
+        const navElement = $('#navbarCollapse');
+        const url = window.location.pathname;
+        navElement.find('a.nav-link').each(function () {
+            const link = $(this);
+            const href = link.attr('href');
+            if (href === url) {
+                link.addClass('active');
+            } else {
+                link.removeClass('active');
+            }
+        })
     });
 
 

@@ -117,6 +117,16 @@
 
 /*** Topbar End ***/
 
+.disabled {
+    pointer-events: none;
+    /* Ngăn chặn mọi thao tác click */
+    cursor: default;
+    /* Đổi con trỏ chuột về mặc định */
+    color: #ccc;
+    /* Làm mờ màu chữ */
+    text-decoration: none;
+}
+
 /*** Navbar Start ***/
 .navbar .navbar-nav .nav-link {
     padding: 10px 15px;
