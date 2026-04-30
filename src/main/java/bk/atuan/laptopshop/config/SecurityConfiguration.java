@@ -61,6 +61,7 @@ public class SecurityConfiguration {
                                 "/",
                                 "/login",
                                 "/product/**",
+                                "/products",
                                 "/register",
                                 "/css/**",
                                 "/js/**",
